@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    // Uncomment the following line if using a remote Git repository
+                    // sh 'git fetch'
+
+                    sh 'git checkout master'
+                    sh 'cp -r * /var/www/html/'
+                }
+            }
+        }
+    }
+}
